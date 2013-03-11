@@ -14,6 +14,8 @@ namespace PosMain
     public class Program : Form
     {
         public const string EventLogName = "Pos Fikr-Malaysia";
+        public static LoginDialog loginDialog;
+
         [STAThread]
         static void Main()
         {
@@ -22,17 +24,18 @@ namespace PosMain
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            mainForm = new MainForm(); 
-            mainForm.Show(); 
+            loginDialog = new LoginDialog();
+            loginDialog.Show(); 
             
             Application.Run(new Program());
             
             
         }
 
-        public static MainForm mainForm;
+        
         private NotifyIcon trayIcon;
         private ContextMenu trayMenu;
+        internal static StaffModel loginUser;
 
         public Program()
         {

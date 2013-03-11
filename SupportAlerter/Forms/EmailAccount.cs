@@ -84,13 +84,14 @@ namespace PosMain
 
         private void btnSaveTest_Click(object sender, EventArgs e)
         {
+            /*
             if (saveConnection())
             {
                 if (Program.mainForm.TestConnection(txtServer.Text, Convert.ToInt32(txtPort.Value), chkUseSSL.Checked, txtUsername.Text, txtPassword.Text))
                 {
                     MessageBox.Show(this, "Connection succeeded!");
                 }
-            }
+            }*/
         }
 
         

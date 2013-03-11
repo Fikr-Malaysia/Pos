@@ -89,6 +89,12 @@
     <Compile Include="Forms\InboxViewer.Designer.cs">
       <DependentUpon>InboxViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LoginDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginDialog.Designer.cs">
+      <DependentUpon>LoginDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LogViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\ServiceManagement.cs" />
+    <Compile Include="Model\StaffModel.cs" />
     <Compile Include="Program.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InboxViewer.resx">
       <DependentUpon>InboxViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginDialog.resx">
+      <DependentUpon>LoginDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LogViewer.resx">
       <DependentUpon>LogViewer.cs</DependentUpon>
@@ -160,6 +170,7 @@
     <Content Include="icon\sms-32.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\pos.png" />
     <None Include="Resources\1358786845_add-user.png" />
     <None Include="Resources\1358787521_delete.png" />
   </ItemGroup>

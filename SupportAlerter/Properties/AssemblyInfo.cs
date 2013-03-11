@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Email To SQL Server Expert")]
-[assembly: AssemblyDescription("Checking eMail and Save it to Database")]
+[assembly: AssemblyTitle("Fikr-Malaysia POS Solution")]
+[assembly: AssemblyDescription("Fikr-Malaysia POS Solution")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Pacific Bank Card")]
-[assembly: AssemblyProduct("Email To SQL Server Expert")]
+[assembly: AssemblyCompany("Fikr-Malaysia")]
+[assembly: AssemblyProduct("Fikr-Malaysia POS Solution")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
