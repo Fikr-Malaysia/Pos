@@ -39,7 +39,7 @@ namespace Utility.ModifyRegistry
 			set	{ showError = value; }
 		}
 
-        private string subKey = "SOFTWARE\\Swdev Bali\\eMailToMSSQL";
+        private string subKey = "SOFTWARE\\Fikr Malaysia\\Pos";
 		/// <summary>
 		/// A property to set the SubKey value
 		/// (default = "SOFTWARE\\" + Application.ProductName.ToUpper())

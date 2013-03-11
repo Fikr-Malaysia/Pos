@@ -63,6 +63,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.optWindowsLogin = new System.Windows.Forms.RadioButton();
+            this.optServerLogin = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,7 +85,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(661, 415);
+            this.tabControl1.Size = new System.Drawing.Size(661, 465);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage2
@@ -100,7 +103,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(653, 389);
+            this.tabPage2.Size = new System.Drawing.Size(653, 439);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "General";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -113,15 +116,15 @@
             "None",
             "Normal",
             "Debug"});
-            this.cboLogLevel.Location = new System.Drawing.Point(174, 335);
+            this.cboLogLevel.Location = new System.Drawing.Point(174, 392);
             this.cboLogLevel.Name = "cboLogLevel";
             this.cboLogLevel.Size = new System.Drawing.Size(121, 21);
-            this.cboLogLevel.TabIndex = 28;
+            this.cboLogLevel.TabIndex = 3;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 338);
+            this.label12.Location = new System.Drawing.Point(15, 395);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(103, 13);
             this.label12.TabIndex = 27;
@@ -129,6 +132,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.optServerLogin);
+            this.groupBox1.Controls.Add(this.optWindowsLogin);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnTestDatabaseConnection);
             this.groupBox1.Controls.Add(this.cboDatabaseType);
@@ -142,7 +148,7 @@
             this.groupBox1.Controls.Add(this.txtDatabase);
             this.groupBox1.Location = new System.Drawing.Point(18, 127);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 202);
+            this.groupBox1.Size = new System.Drawing.Size(376, 247);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Database storage";
@@ -158,10 +164,10 @@
             // 
             // btnTestDatabaseConnection
             // 
-            this.btnTestDatabaseConnection.Location = new System.Drawing.Point(156, 157);
+            this.btnTestDatabaseConnection.Location = new System.Drawing.Point(156, 216);
             this.btnTestDatabaseConnection.Name = "btnTestDatabaseConnection";
             this.btnTestDatabaseConnection.Size = new System.Drawing.Size(121, 23);
-            this.btnTestDatabaseConnection.TabIndex = 5;
+            this.btnTestDatabaseConnection.TabIndex = 7;
             this.btnTestDatabaseConnection.Text = "&Test Connection";
             this.btnTestDatabaseConnection.UseVisualStyleBackColor = true;
             this.btnTestDatabaseConnection.Click += new System.EventHandler(this.btnTestDatabaseConnection_Click);
@@ -180,11 +186,12 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(156, 130);
+            this.txtPassword.Enabled = false;
+            this.txtPassword.Location = new System.Drawing.Point(233, 177);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(121, 20);
-            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabIndex = 6;
             // 
             // label6
             // 
@@ -198,7 +205,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 130);
+            this.label9.Location = new System.Drawing.Point(172, 177);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 20;
@@ -213,10 +220,11 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(156, 104);
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Location = new System.Drawing.Point(233, 151);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(121, 20);
-            this.txtUsername.TabIndex = 3;
+            this.txtUsername.TabIndex = 5;
             // 
             // label7
             // 
@@ -230,7 +238,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 104);
+            this.label8.Location = new System.Drawing.Point(172, 151);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 19;
@@ -325,7 +333,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(653, 389);
+            this.tabPage1.Size = new System.Drawing.Size(653, 439);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Email Accounts";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -336,7 +344,7 @@
             this.btnRemoveAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemoveAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveAccount.Image = global::PosMain.Properties.Resources.delete_account;
-            this.btnRemoveAccount.Location = new System.Drawing.Point(48, 285);
+            this.btnRemoveAccount.Location = new System.Drawing.Point(48, 335);
             this.btnRemoveAccount.Name = "btnRemoveAccount";
             this.btnRemoveAccount.Size = new System.Drawing.Size(32, 32);
             this.btnRemoveAccount.TabIndex = 3;
@@ -348,7 +356,7 @@
             this.btnAddAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddAccount.Image = global::PosMain.Properties.Resources.add_account;
-            this.btnAddAccount.Location = new System.Drawing.Point(10, 285);
+            this.btnAddAccount.Location = new System.Drawing.Point(10, 335);
             this.btnAddAccount.Name = "btnAddAccount";
             this.btnAddAccount.Size = new System.Drawing.Size(32, 32);
             this.btnAddAccount.TabIndex = 2;
@@ -369,7 +377,7 @@
             this.tabLayoutEmailAccount.Name = "tabLayoutEmailAccount";
             this.tabLayoutEmailAccount.RowCount = 1;
             this.tabLayoutEmailAccount.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tabLayoutEmailAccount.Size = new System.Drawing.Size(638, 246);
+            this.tabLayoutEmailAccount.Size = new System.Drawing.Size(638, 296);
             this.tabLayoutEmailAccount.TabIndex = 1;
             // 
             // panelAccountDetail
@@ -378,7 +386,7 @@
             this.panelAccountDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAccountDetail.Location = new System.Drawing.Point(183, 3);
             this.panelAccountDetail.Name = "panelAccountDetail";
-            this.panelAccountDetail.Size = new System.Drawing.Size(452, 240);
+            this.panelAccountDetail.Size = new System.Drawing.Size(452, 290);
             this.panelAccountDetail.TabIndex = 1;
             // 
             // lblAccountInfo
@@ -396,7 +404,7 @@
             this.lvAccount.FormattingEnabled = true;
             this.lvAccount.Location = new System.Drawing.Point(3, 3);
             this.lvAccount.Name = "lvAccount";
-            this.lvAccount.Size = new System.Drawing.Size(174, 240);
+            this.lvAccount.Size = new System.Drawing.Size(174, 290);
             this.lvAccount.TabIndex = 2;
             this.lvAccount.SelectedIndexChanged += new System.EventHandler(this.lvAccount_SelectedIndexChanged);
             // 
@@ -421,23 +429,23 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.58878F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.411215F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(667, 460);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(667, 515);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnOK);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 424);
+            this.panel1.Location = new System.Drawing.Point(3, 474);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(661, 33);
+            this.panel1.Size = new System.Drawing.Size(661, 38);
             this.panel1.TabIndex = 4;
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(583, 7);
+            this.btnOK.Location = new System.Drawing.Point(583, 12);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -445,11 +453,44 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 104);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Server security";
+            // 
+            // optWindowsLogin
+            // 
+            this.optWindowsLogin.AutoSize = true;
+            this.optWindowsLogin.Checked = true;
+            this.optWindowsLogin.Location = new System.Drawing.Point(156, 105);
+            this.optWindowsLogin.Name = "optWindowsLogin";
+            this.optWindowsLogin.Size = new System.Drawing.Size(94, 17);
+            this.optWindowsLogin.TabIndex = 3;
+            this.optWindowsLogin.TabStop = true;
+            this.optWindowsLogin.Text = "Windows login";
+            this.optWindowsLogin.UseVisualStyleBackColor = true;
+            this.optWindowsLogin.CheckedChanged += new System.EventHandler(this.optWindowsLogin_CheckedChanged);
+            // 
+            // optServerLogin
+            // 
+            this.optServerLogin.AutoSize = true;
+            this.optServerLogin.Location = new System.Drawing.Point(156, 128);
+            this.optServerLogin.Name = "optServerLogin";
+            this.optServerLogin.Size = new System.Drawing.Size(81, 17);
+            this.optServerLogin.TabIndex = 4;
+            this.optServerLogin.Text = "Server login";
+            this.optServerLogin.UseVisualStyleBackColor = true;
+            this.optServerLogin.CheckedChanged += new System.EventHandler(this.optServerLogin_CheckedChanged);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 460);
+            this.ClientSize = new System.Drawing.Size(667, 515);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Settings";
@@ -508,5 +549,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboLogLevel;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RadioButton optServerLogin;
+        private System.Windows.Forms.RadioButton optWindowsLogin;
     }
 }

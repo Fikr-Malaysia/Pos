@@ -33,8 +33,13 @@ namespace PosLibrary
                 if (dataConnection.State == ConnectionState.Open) dataConnection.Close();
                 dataConnection.Dispose();
             }
-            //Data Source=(localdb)\v11.0;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False
-            dataConnection = new SqlConnection("Server=" + RegistrySettings.SqlHost + ";Database=" + RegistrySettings.SqlDatabase + ";Uid=" + RegistrySettings.SqlUsername + ";Pwd=" + RegistrySettings.SqlPassword);
+            if (RegistrySettings.windowsLogin)
+            {
+                dataConnection = new SqlConnection("Server=" + RegistrySettings.SqlHost + ";Database=" + RegistrySettings.SqlDatabase + ";;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False");
+            }else
+            {
+                dataConnection = new SqlConnection("Server=" + RegistrySettings.SqlHost + ";Database=" + RegistrySettings.SqlDatabase + ";Uid=" + RegistrySettings.SqlUsername + ";Pwd=" + RegistrySettings.SqlPassword);
+            }
         }
 
         public static CoreFeature getInstance()
@@ -61,7 +66,6 @@ namespace PosLibrary
                 }
                 catch (Exception ex)
                 {
-                    //MessageBox.Show("Database connection error : " + ex.Message);
                     LogActivity(LogLevel.Normal, "Database connection error : " + ex.Message,EventLogEntryType.Error);
                     return null;
                 }

@@ -24,6 +24,7 @@ namespace PosMain
 
             ReadValues();
             SqlConnection connection = CoreFeature.getInstance().getDataConnection();
+            /*
             lvAccount.Items.Clear();
 
             if (connection != null)
@@ -45,14 +46,17 @@ namespace PosMain
 
                 connection.Close();
             }
+             */
             cboDatabaseType.SelectedIndex = 0;
         }
 
         private void ReadValues()
-        {
-            numEmailCheckInterval.Value = RegistrySettings.emailCheckInterval;
+        {            
             updateServiceStatus();
             txtHost.Text = RegistrySettings.SqlHost;
+            cboDatabaseType.Text = RegistrySettings.dbType;
+            optServerLogin.Checked = RegistrySettings.serverLogin;
+            optWindowsLogin.Checked = RegistrySettings.windowsLogin;
             txtDatabase.Text = RegistrySettings.SqlDatabase;
             txtUsername.Text = RegistrySettings.SqlUsername;
             txtPassword.Text = RegistrySettings.SqlPassword;
@@ -92,7 +96,9 @@ namespace PosMain
         private void SaveValues()
         {
 
-            RegistrySettings.emailCheckInterval = Convert.ToInt32(numEmailCheckInterval.Value);
+            RegistrySettings.dbType = cboDatabaseType.Text;
+            RegistrySettings.windowsLogin = optWindowsLogin.Checked;
+            RegistrySettings.serverLogin = optServerLogin.Checked;
             RegistrySettings.SqlHost = txtHost.Text;
             RegistrySettings.SqlDatabase = txtDatabase.Text;
             RegistrySettings.SqlUsername = txtUsername.Text;
@@ -187,6 +193,16 @@ namespace PosMain
         {
             SaveValues();
             RegistrySettings.writeValues();
+            CoreFeature.getInstance().resetConnection();
+            if (CoreFeature.getInstance().getDataConnection() == null)
+            {
+                MessageBox.Show("Can not connect to the database");
+            }
+            else
+            {
+                MessageBox.Show("Connection established");
+            }
+            /*
             try
             {
                 SqlConnection con = new SqlConnection("Server=" + RegistrySettings.SqlHost + ";Database=" + RegistrySettings.SqlDatabase + ";Uid=" + RegistrySettings.SqlUsername + ";Pwd=" + RegistrySettings.SqlPassword);
@@ -201,6 +217,34 @@ namespace PosMain
             catch (Exception ex)
             {
                 MessageBox.Show("Connection error : " + ex.Message);
+            }*/
+        }
+
+        private void optWindowsLogin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (optWindowsLogin.Checked)
+            {
+                txtUsername.Enabled = false;
+                txtPassword.Enabled = false;
+            }
+            else
+            {
+                txtUsername.Enabled = true;
+                txtPassword.Enabled = true;
+            }
+        }
+
+        private void optServerLogin_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!optServerLogin.Checked)
+            {
+                txtUsername.Enabled = false;
+                txtPassword.Enabled = false;
+            }
+            else
+            {
+                txtUsername.Enabled = true;
+                txtPassword.Enabled = true;
             }
         }
 

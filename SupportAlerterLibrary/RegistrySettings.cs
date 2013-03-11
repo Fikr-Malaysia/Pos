@@ -10,9 +10,10 @@ namespace PosLibrary
     {
         private static RegistrySettings instance = null;
         private static ModifyRegistry reg = new ModifyRegistry();
-
-       
-        public static int emailCheckInterval;
+        
+        public static string dbType;
+        public static bool windowsLogin;
+        public static bool serverLogin;
         public static string SqlHost;
         public static string SqlDatabase;
         public static string SqlUsername;
@@ -21,7 +22,7 @@ namespace PosLibrary
 
         private RegistrySettings()
         {
-            reg.SubKey = "SOFTWARE\\Swdev Bali\\eMailToMSSQL";
+            reg.SubKey = "SOFTWARE\\Fikr Malaysia\\Pos";
             loadValues();
         }
 
@@ -37,7 +38,9 @@ namespace PosLibrary
 
         public static void loadValues()
         {
-            emailCheckInterval = (int)reg.Read("emailCheckInterval", 1);//in minutes
+            windowsLogin = ((int)reg.Read("windowsLogin", 1)==1);
+            serverLogin = ((int)reg.Read("serverLogin", 1) == 1);
+            dbType = (string)reg.Read("dbType", "MSSQL");
             SqlHost = (string) reg.Read("SqlHost", "localhost");
             SqlDatabase = (string)reg.Read("SqlDatabase", "email2sms");
             SqlUsername = (string)reg.Read("SqlUsername", "root");
@@ -47,7 +50,9 @@ namespace PosLibrary
 
         public static void writeValues()
         {
-            reg.Write("emailCheckInterval", emailCheckInterval);
+            reg.Write("windowsLogin", Convert.ToInt32(windowsLogin));
+            reg.Write("serverLogin", Convert.ToInt32(serverLogin));
+            reg.Write("dbType", dbType);
             reg.Write("SqlHost", SqlHost);
             reg.Write("SqlDatabase", SqlDatabase);
             reg.Write("SqlUsername", SqlUsername);
